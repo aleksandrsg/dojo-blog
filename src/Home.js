@@ -12,10 +12,15 @@ const Home = () => {
         ]
     );
 
+    const deleteBlog = (id) => {
+        const updatedBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(updatedBlogs);
+    }
+
     return (  
         <div className="home">
             < BlogList blogs = { blogs} title = "All blogs!"/>
-            < BlogList blogs = { blogs.filter((blog) => blog.author === 'Aleks')} title = "Aleks Blogs"/>
+            < BlogList blogs = { blogs.filter((blog) => blog.author === 'Aleks')} title = "Aleks Blogs" deleteBlog= {deleteBlog}/>
         </div>
     );
 }
