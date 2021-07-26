@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import BlogList from './BlogList';
 
 
@@ -17,9 +17,13 @@ const Home = () => {
         setBlogs(updatedBlogs);
     }
 
+    useEffect( () => {
+        console.log ('Rerendered')
+    });
+
     return (  
         <div className="home">
-            < BlogList blogs = { blogs} title = "All blogs!"/>
+            < BlogList blogs = { blogs} title = "All blogs!" deleteBlog= {deleteBlog}/>
             < BlogList blogs = { blogs.filter((blog) => blog.author === 'Aleks')} title = "Aleks Blogs" deleteBlog= {deleteBlog}/>
         </div>
     );
