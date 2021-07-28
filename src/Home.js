@@ -17,18 +17,26 @@ const Home = () => {
         setBlogs(updatedBlogs);
     } */
 
-    useEffect( () => {
-        fetch('http://localhost:8000/blogs') // this requets returns the Promise
-        .then(response => { // for Promise we can use method .then
-            return response.json() // this line passes the JSON into a Javascript object for us
-        }) 
-        .then((data) =>{
-            setBlogs(data);
-        })
+    const [isLoading, setIsLoading] = useState(true);
+
+
+
+    useEffect(() => {
+        setTimeout( () => {
+            fetch('http://localhost:8000/blogs') // this requets returns the Promise
+            .then(response => { // for Promise we can use method .then
+                return response.json() // this line passes the JSON into a Javascript object for us
+            }) 
+            .then((data) =>{
+                setBlogs(data);
+                setIsLoading(false);
+            });
+        }, 2000)
     }, []);
 
     return (  
         <div className="home">
+            {isLoading && <div>Data from DB is Loading</div>}
             { blogs /*false as start State is null*/ && < BlogList blogs = { blogs} title = "All blogs!" />}
         </div>
     );
