@@ -1,16 +1,24 @@
 import './index.css';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
 
   return (
-    <div className="App">
-      <Navbar />
+    <Router>
+      <div className="App">
+        <Navbar />
       <div className="content">
-        <Home />
+        <Switch>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
       </div>
     </div>
+    </Router>
+    
   );
 }
 
