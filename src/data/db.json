@@ -13,12 +13,6 @@
       "id": 2
     },
     {
-      "title": "New Blog Added",
-      "body": "This is test text",
-      "author": "Olga",
-      "id": 3
-    },
-    {
       "title": "useHistory Hook",
       "body": "Use useHistory hook for redirection to Home page",
       "author": "Aleks",
